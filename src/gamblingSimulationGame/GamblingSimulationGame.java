@@ -27,16 +27,26 @@ public class GamblingSimulationGame {
 		
 		gameStatus();
 		
-		int playStatus = random.nextInt(9) % 2;
+		while(true) {
 		
-		if(playStatus == LOOSE) {
-			looseStack++;
-		}else{
-			winStack++;			
+			int playStatus = random.nextInt(9) % 2;
+			
+			if(playStatus == LOOSE) {
+				looseStack++;
+			}else{
+				winStack++;			
+			}
+				
+			gameStatus();
+			
+			if(looseStack == EVERYDAY_STAKE / 2) {
+				break;
+			}
+			if (winStack == EVERYDAY_STAKE / 2) {
+				break;
+			}
 		}
 			
-		gameStatus();
-		
 	}
 	public static void main(String[] args) {
 		System.out.println("Welcome to program of Gambling Simulation of Ajay Patel");
