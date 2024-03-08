@@ -16,7 +16,6 @@ public class GamblingSimulationGame {
 		
 		System.out.println("Stake available for start of the day : "+DAILYSTAKE);
 		System.out.println("Bet for every game : "+EVERY_GAME_BET);
-		System.out.println("--------------------------\n");
 		
 	}
 	
@@ -26,12 +25,13 @@ public class GamblingSimulationGame {
 
 		for(int i = 0; i < DAYS_PLAYING; i++) {
 
-			gameStatus();
-			
 			int winStake = 0 ;
 			int looseStake = 0;
 			
+			System.out.println("");
 			System.out.println("Day : "+(i+1));
+
+			gameStatus();
 			
 			while(true) {
 			
@@ -42,25 +42,21 @@ public class GamblingSimulationGame {
 				}else{
 					winStake++;			
 				}
-				
-				loosingAmount[i] += looseStake;
-				winningAmount[i] += winStake;
-				
-				
+							
 				if(looseStake == DAILYSTAKE / 2 || winStake == DAILYSTAKE / 2) {
 					break;
 				}
 			}
 			
+			loosingAmount[i] = looseStake;
+			winningAmount[i] = winStake;
+
 			System.out.println("Winnings for day "+(i+1)+" : "+winningAmount[i]);
 			System.out.println("loosings for day "+(i+1)+" : "+loosingAmount[i]);
+			System.out.println("\n--------------------------");
 		}	
 		
 	}
-	public static void total_Winning() {
-		
-	}
-	
 	public static void main(String[] args) {
 		
 		System.out.println("Welcome to program of Gambling Simulation of Ajay Patel");
